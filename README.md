@@ -1,4 +1,4 @@
-# Template for Python Scripts
+# Template Repo for Python Scripts
 
 > Default template for the publication/release of python scripts
 
