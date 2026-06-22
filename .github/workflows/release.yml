@@ -30,7 +30,8 @@ jobs:
       - name: Check if version changed
         id: version_changed
         run: |
-          PREV_VERSION=$(git show HEAD~1:package.json | jq -r '.version' 2>/dev/null || echo "")
+          PREV_JSON=$(git show HEAD~1:package.json 2>/dev/null || echo "{}")
+          PREV_VERSION=$(echo "$PREV_JSON" | jq -r '.version // empty' 2>/dev/null || echo "")
           CURR_VERSION=${{ steps.pkg.outputs.version }}
           if [ "$PREV_VERSION" != "$CURR_VERSION" ]; then
             echo "changed=true" >> $GITHUB_OUTPUT
