@@ -60,7 +60,7 @@ jobs:
                   steps.version_changed.outputs.changed == 'true' &&
                   steps.tag_check.outputs.exists == 'false'
               run: |
-                  MSG=$(git log -1 --pretty=%B)
+                  MSG=$(git log -1 --pretty=%B | grep -v '^Signed-off-by:')
                   # Escape multiline for GitHub output
                   echo "message<<EOF" >> $GITHUB_OUTPUT
                   echo "$MSG" >> $GITHUB_OUTPUT
