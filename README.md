@@ -21,8 +21,10 @@ python script.py
 
 ## Changes and Release
 
-Increment the package.json version, using SEMVER when commiting new changes to the script.
-The GitHub action will  create a new release using the last commit message as the release note.
+Increment the package.json version, using SemVer, when committing new changes to the script.
+The GitHub action creates a new release. Its notes have an About section from the package.json description, then a
+list of what's changed since the previous release, from the shared release-notes action in
+[thechelsuk/workflows](https://github.com/thechelsuk/workflows).
 
 ## Notes
 
